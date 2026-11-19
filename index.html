@@ -162,7 +162,6 @@ header .hero-content>.photo{width:clamp(220px,24vw,260px);height:clamp(220px,24v
 #e5{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}
 #e5>h2,#e5>p,#e5>#synthese{grid-column:1/-1}
 #e5>#stage,#e5>#rapports{margin:0}
-#stage .card,#rapports .grid{height:100%}
 #e5 #synthese .grid{max-width:560px}
 #certifs .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
@@ -175,18 +174,18 @@ header .hero-content>h1,header .hero-content>.intro,header .hero-content>p,heade
 header .hero-content>p:not(.intro){grid-column:1}
 header .hero-content>p{margin:.5rem auto 0}
 header .hero-content>.hero-actions{justify-content:center}
-#stage .stage-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:1rem;margin-top:1rem}
-#stage .stage-photo{min-width:0;margin:0;padding:0;overflow:hidden}
-#stage .stage-photo>a{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--bg)}
-#stage .stage-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
-#stage .stage-photo>a:hover img,#stage .stage-photo>a:focus-visible img{transform:scale(1.04)}
-#stage .stage-photo figcaption{padding:.75rem 1rem;color:var(--mut);font-size:.88rem;line-height:1.45}
+#e5>.stage-gallery{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:1rem;margin-top:0}
+#e5>.stage-gallery .stage-photo{min-width:0;margin:0;padding:0;overflow:hidden}
+#e5>.stage-gallery .stage-photo>a{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--bg)}
+#e5>.stage-gallery .stage-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+#e5>.stage-gallery .stage-photo>a:hover img,#e5>.stage-gallery .stage-photo>a:focus-visible img{transform:scale(1.04)}
+#e5>.stage-gallery .stage-photo figcaption{padding:.75rem 1rem;color:var(--mut);font-size:.88rem;line-height:1.45}
 .project-card:after{position:absolute;z-index:0;inset:0;border-radius:inherit;background:radial-gradient(circle at var(--spot-x,50%) var(--spot-y,50%),rgba(177,138,255,.18),transparent 48%);content:"";opacity:0;pointer-events:none;transition:opacity .25s}
 .project-card>*{position:relative;z-index:1}
 .project-card.interactive-card:hover:after{opacity:1}
 .interactive-card{transform-style:preserve-3d}
 @media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){.project-card.interactive-card:hover,main>section .card.interactive-card:hover{transform:perspective(1100px) rotateX(var(--tilt-y,0deg)) rotateY(var(--tilt-x,0deg)) translateY(-4px);box-shadow:0 22px 48px rgba(0,0,0,.2)}}
-@media(prefers-reduced-motion:reduce){.js-motion .card:not(.card-revealed),.js-motion .project-card:not(.card-revealed){opacity:1}.js-motion .card.card-revealed,.js-motion .project-card.card-revealed{animation:none}.project-card:after{display:none}#stage .stage-photo img{transition:none}}
+@media(prefers-reduced-motion:reduce){.js-motion .card:not(.card-revealed),.js-motion .project-card:not(.card-revealed){opacity:1}.js-motion .card.card-revealed,.js-motion .project-card.card-revealed{animation:none}.project-card:after{display:none}#e5>.stage-gallery .stage-photo img{transition:none}}
 </style>
 </head>
 <body id="top">
@@ -257,12 +256,6 @@ header .hero-content>.hero-actions{justify-content:center}
 <ul><li>Diagnostic de pannes sur parc PC/Mac : démontage, remplacement de pâte thermique, upgrade RAM, remise en service</li>
 <li>Réinstallation d’OS et récupération de données (HDD/SSD)</li>
 <li>Accueil des clients et explication pédagogique des interventions</li></ul></div>
-<div class="stage-gallery" aria-label="Photographies des interventions réalisées en stage">
-<figure class="card stage-photo"><a href="rapports/preuves-stage/ecran-bleu.jpeg" target="_blank" rel="noopener"><img src="rapports/preuves-stage/ecran-bleu.jpeg" alt="Écran bleu Windows affiché sur un ordinateur portable" loading="lazy" decoding="async"></a><figcaption>Diagnostic d’un ordinateur présentant un écran bleu.</figcaption></figure>
-<figure class="card stage-photo"><a href="rapports/preuves-stage/inspection-composants.jpeg" target="_blank" rel="noopener"><img src="rapports/preuves-stage/inspection-composants.jpeg" alt="Ordinateur portable ouvert pour inspection des composants internes" loading="lazy" decoding="async"></a><figcaption>Inspection et contrôle des composants internes.</figcaption></figure>
-<figure class="card stage-photo"><a href="rapports/preuves-stage/connecteur.jpeg" target="_blank" rel="noopener"><img src="rapports/preuves-stage/connecteur.jpeg" alt="Contrôle d’un connecteur sur le châssis d’un ordinateur portable" loading="lazy" decoding="async"></a><figcaption>Vérification d’un connecteur sur le châssis.</figcaption></figure>
-<figure class="card stage-photo"><a href="rapports/preuves-stage/nettoyage-interne.jpeg" target="_blank" rel="noopener"><img src="rapports/preuves-stage/nettoyage-interne.jpeg" alt="Ordinateur portable ouvert pour nettoyage de ses composants internes" loading="lazy" decoding="async"></a><figcaption>Nettoyage des composants et du système de refroidissement.</figcaption></figure>
-</div>
 </div>
 <div id="rapports">
 <h3>Rapport de stage</h3>
@@ -274,6 +267,12 @@ header .hero-content>.hero-actions{justify-content:center}
 <a class="button button-outline" href="rapports/Rapport_de_stage_Les_Reparateurs_Mac_et_PC.pdf" target="_blank" rel="noopener">Ouvrir le rapport PDF</a>
 </article>
 </div>
+</div>
+<div class="stage-gallery" aria-label="Photographies des interventions réalisées en stage">
+<figure class="card stage-photo"><a href="rapports/preuves-stage/ecran-bleu.jpeg" target="_blank" rel="noopener"><img src="rapports/preuves-stage/ecran-bleu.jpeg" alt="Écran bleu Windows affiché sur un ordinateur portable" loading="lazy" decoding="async"></a><figcaption>Diagnostic d’un ordinateur présentant un écran bleu.</figcaption></figure>
+<figure class="card stage-photo"><a href="rapports/preuves-stage/inspection-composants.jpeg" target="_blank" rel="noopener"><img src="rapports/preuves-stage/inspection-composants.jpeg" alt="Ordinateur portable ouvert pour inspection des composants internes" loading="lazy" decoding="async"></a><figcaption>Inspection et contrôle des composants internes.</figcaption></figure>
+<figure class="card stage-photo"><a href="rapports/preuves-stage/connecteur.jpeg" target="_blank" rel="noopener"><img src="rapports/preuves-stage/connecteur.jpeg" alt="Contrôle d’un connecteur sur le châssis d’un ordinateur portable" loading="lazy" decoding="async"></a><figcaption>Vérification d’un connecteur sur le châssis.</figcaption></figure>
+<figure class="card stage-photo"><a href="rapports/preuves-stage/nettoyage-interne.jpeg" target="_blank" rel="noopener"><img src="rapports/preuves-stage/nettoyage-interne.jpeg" alt="Ordinateur portable ouvert pour nettoyage de ses composants internes" loading="lazy" decoding="async"></a><figcaption>Nettoyage des composants et du système de refroidissement.</figcaption></figure>
 </div>
 <section id="synthese">
 <h3>Tableau de synthèse E5</h3>
